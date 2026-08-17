@@ -1,0 +1,469 @@
+# index.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yeabkal Zerihun | Creative Director</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#0a0a0a;
+    --card:#121212;
+    --text:#ffffff;
+    --muted:#9c9c9c;
+    --accent:#d4af37;
+    --border:#1f1f1f;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    overflow-x:hidden;
+}
+
+.container{
+    width:min(1200px,90%);
+    margin:auto;
+}
+
+/* NAV */
+
+nav{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    backdrop-filter:blur(15px);
+    background:rgba(10,10,10,.75);
+    border-bottom:1px solid var(--border);
+    z-index:999;
+}
+
+.nav-inner{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 0;
+}
+
+.logo{
+    font-weight:800;
+    letter-spacing:2px;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:30px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-size:14px;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+}
+
+.hero-content{
+    max-width:850px;
+}
+
+.tag{
+    color:var(--accent);
+    margin-bottom:15px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.hero h1{
+    font-size:clamp(3rem,8vw,7rem);
+    line-height:0.95;
+    margin-bottom:25px;
+}
+
+.hero p{
+    font-size:1.2rem;
+    color:var(--muted);
+    max-width:650px;
+    line-height:1.8;
+}
+
+.cta{
+    margin-top:40px;
+    display:inline-block;
+    padding:16px 30px;
+    background:white;
+    color:black;
+    text-decoration:none;
+    border-radius:999px;
+    font-weight:600;
+}
+
+/* SECTION */
+
+section{
+    padding:120px 0;
+}
+
+.section-title{
+    font-size:3rem;
+    margin-bottom:60px;
+}
+
+/* PROJECTS */
+
+.project{
+    margin-bottom:120px;
+    opacity:0;
+    transform:translateY(60px);
+    transition:1s ease;
+}
+
+.project.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.project-image{
+    width:100%;
+    height:700px;
+    overflow:hidden;
+    border-radius:28px;
+    background:#1c1c1c;
+    border:1px solid var(--border);
+}
+
+.project-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition:.6s;
+}
+
+.project:hover img{
+    transform:scale(1.05);
+}
+
+.project-info{
+    margin-top:25px;
+}
+
+.project-category{
+    color:var(--accent);
+    margin-bottom:8px;
+}
+
+.project-title{
+    font-size:2rem;
+    margin-bottom:10px;
+}
+
+.project-desc{
+    color:var(--muted);
+    line-height:1.8;
+}
+
+/* ABOUT */
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px;
+    align-items:center;
+}
+
+.about h2{
+    font-size:4rem;
+}
+
+.about p{
+    color:var(--muted);
+    line-height:2;
+    font-size:1.1rem;
+}
+
+/* STATS */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+    margin-top:60px;
+}
+
+.stat{
+    background:var(--card);
+    border:1px solid var(--border);
+    padding:35px;
+    border-radius:20px;
+}
+
+.stat h3{
+    font-size:3rem;
+}
+
+.stat p{
+    color:var(--muted);
+}
+
+/* CONTACT */
+
+.contact{
+    text-align:center;
+}
+
+.contact h2{
+    font-size:4rem;
+    margin-bottom:25px;
+}
+
+.contact p{
+    color:var(--muted);
+    margin-bottom:40px;
+}
+
+.links{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.links a{
+    color:white;
+    text-decoration:none;
+    padding:14px 22px;
+    border:1px solid var(--border);
+    border-radius:999px;
+}
+
+footer{
+    text-align:center;
+    padding:40px 0;
+    color:var(--muted);
+    border-top:1px solid var(--border);
+}
+
+@media(max-width:900px){
+
+    nav ul{
+        display:none;
+    }
+
+    .about{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .project-image{
+        height:350px;
+    }
+
+    .hero h1{
+        font-size:4rem;
+    }
+
+    .contact h2{
+        font-size:2.5rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="container nav-inner">
+<div class="logo">YEABKAL</div>
+
+<ul>
+<li><a href="#work">Work</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</div>
+</nav>
+
+<section class="hero">
+<div class="container hero-content">
+
+<div class="tag">
+Creative Director • Designer • Storyteller
+</div>
+
+<h1>
+Designing stories,<br>
+data & brands.
+</h1>
+
+<p>
+Over 10 years creating magazine layouts,
+editorial illustrations, motion graphics,
+infographics and visual identities that turn
+complex ideas into compelling stories.
+</p>
+
+<a href="#work" class="cta">View My Work</a>
+
+</div>
+</section>
+
+<section id="work">
+<div class="container">
+
+<h2 class="section-title">Selected Work</h2>
+
+<div class="project">
+<div class="project-image">
+<img src="images/project1.jpg" alt="">
+</div>
+
+<div class="project-info">
+<div class="project-category">Magazine Design</div>
+<h3 class="project-title">Ethiopian Entrepreneur</h3>
+<p class="project-desc">
+Editorial design, visual storytelling and publication branding.
+</p>
+</div>
+</div>
+
+<div class="project">
+<div class="project-image">
+<img src="images/project2.jpg" alt="">
+</div>
+
+<div class="project-info">
+<div class="project-category">Infographic Design</div>
+<h3 class="project-title">Addis Fortune Data Series</h3>
+<p class="project-desc">
+Complex economic stories transformed into engaging visual narratives.
+</p>
+</div>
+</div>
+
+<div class="project">
+<div class="project-image">
+<img src="images/project3.jpg" alt="">
+</div>
+
+<div class="project-info">
+<div class="project-category">Motion Graphics</div>
+<h3 class="project-title">Banking Campaigns</h3>
+<p class="project-desc">
+Animated explainers, financial storytelling and social campaigns.
+</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="about">
+<div class="container">
+
+<div class="about">
+
+<div>
+<h2>About</h2>
+</div>
+
+<div>
+<p>
+I'm Yeabkal Zerihun, a Creative Director and Graphic Designer specializing in editorial design, visual communication and motion graphics.
+My work blends clean aesthetics, strategic thinking and storytelling to create memorable experiences across print and digital platforms.
+</p>
+
+<div class="stats">
+
+<div class="stat">
+<h3>10+</h3>
+<p>Years Experience</p>
+</div>
+
+<div class="stat">
+<h3>200+</h3>
+<p>Projects</p>
+</div>
+
+<div class="stat">
+<h3>50+</h3>
+<p>Brands Served</p>
+</div>
+
+</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<section id="contact">
+<div class="container contact">
+
+<h2>Let's Create Something Great</h2>
+
+<p>
+Available for freelance, consulting and creative partnerships.
+</p>
+
+<div class="links">
+<a href="#">Email</a>
+<a href="#">LinkedIn</a>
+<a href="#">Behance</a>
+<a href="#">Instagram</a>
+</div>
+
+</div>
+</section>
+
+<footer>
+© 2026 Yeabkal Zerihun. All Rights Reserved.
+</footer>
+
+<script>
+const projects=document.querySelectorAll('.project');
+
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add('show');
+}
+});
+},{threshold:0.2});
+
+projects.forEach(project=>{
+observer.observe(project);
+});
+</script>
+
+</body>
+</html>
+```
